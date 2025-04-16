@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #ff4d94;
+  --primary-dark: #cc005c;
+  --primary-light: #ff94c2;
+  --secondary-color: #ff7c5c;
+}
+
+body {
+  @apply font-sans text-gray-800 bg-gray-50;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* RTL Support */
+[dir="rtl"] {
+  font-family: 'Tajawal', sans-serif;
+}
+
+/* Title styling */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-serif;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: -0.025em;
+}
+
+/* Custom Styles */
+.btn {
+  @apply px-5 py-2.5 rounded-lg transition-colors focus:outline-none;
+}
+
+.btn-primary {
+  @apply bg-primary text-white hover:bg-primary-dark shadow-md hover:shadow-lg;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-white hover:bg-secondary-dark shadow-md hover:shadow-lg;
+}
+
+.btn-outline {
+  @apply border-2 border-primary text-primary hover:bg-primary hover:text-white shadow-sm hover:shadow-md;
+}
+
+.card {
+  @apply bg-white rounded-lg shadow-md overflow-hidden;
+}
+
+/* Form Elements */
+input, textarea, select {
+  @apply w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary focus:outline-none transition;
+}
+
+label {
+  @apply block text-sm font-medium text-gray-700 mb-2;
+}
+
+/* Container for page content */
+.container {
+  @apply px-4 mx-auto max-w-7xl;
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Product grid */
+.product-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6;
+}
+
+/* Page transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+@media (max-width: 640px) {
+  .product-grid-container {
+    gap: 8px !important;  
+  }
+}
